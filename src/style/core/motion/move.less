@@ -1,0 +1,120 @@
+.move-motion(@className, @keyframeName) {
+    .make-motion(@className, @keyframeName);
+    .@{className}-enter,
+    .@{className}-appear {
+        opacity: 0;
+        animation-timing-function: @ease-out-circ;
+    }
+    .@{className}-leave {
+        animation-timing-function: @ease-in-circ;
+    }
+}
+
+.move-motion(move-down, fyMoveDown);
+.move-motion(move-up, fyMoveUp);
+.move-motion(move-left, fyMoveLeft);
+.move-motion(move-right, fyMoveRight);
+
+@keyframes fyMoveDownIn {
+    0% {
+        transform-origin: 0 0;
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fyMoveDownOut {
+    0% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fyMoveUpIn {
+    0% {
+        transform-origin: 0 0;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fyMoveUpOut {
+    0% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fyMoveLeftIn {
+    0% {
+        transform-origin: 0 0;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fyMoveLeftOut {
+    0% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fyMoveRightIn {
+    0% {
+        transform-origin: 0 0;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fyMoveLeftOut {
+    0% {
+        transform-origin: 0 0;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    100% {
+        transform-origin: 0 0;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

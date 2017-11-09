@@ -1,0 +1,160 @@
+.zoom-motion(@className, @keyframeName, @duration: @animation-duration-base) {
+    .make-motion(@className, @keyframeName, @duration);
+    .@{className}-enter,
+    .@{className}-appear {
+        transform: scale(0); // need this by yiminghe
+        animation-timing-function: @ease-out-circ;
+    }
+    .@{className}-leave {
+        animation-timing-function: @ease-in-out-circ;
+    }
+}
+
+// For Modal, Select choosen item
+.zoom-motion(zoom, fyZoom);
+// For Popover, Popconfirm, Dropdown
+.zoom-motion(zoom-big, fyZoomBig);
+// For Tooltip
+.zoom-motion(zoom-big-fast, fyZoomBig, @animation-duration-fast);
+
+.zoom-motion(zoom-up, fyZoomUp);
+.zoom-motion(zoom-down, fyZoomDown);
+.zoom-motion(zoom-left, fyZoomLeft);
+.zoom-motion(zoom-right, fyZoomRight);
+
+@keyframes fyZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fyZoomOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+}
+
+@keyframes fyZoomBigIn {
+    0% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fyZoomBigOut {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.8);
+    }
+}
+
+@keyframes fyZoomUpIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 0%;
+        transform: scale(.8);
+    }
+    100% {
+        transform-origin: 50% 0%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fyZoomUpOut {
+    0% {
+        transform-origin: 50% 0%;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 50% 0%;
+        transform: scale(.8);
+    }
+}
+
+@keyframes fyZoomLeftIn {
+    0% {
+        opacity: 0;
+        transform-origin: 0% 50%;
+        transform: scale(.8);
+    }
+    100% {
+        transform-origin: 0% 50%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fyZoomLeftOut {
+    0% {
+        transform-origin: 0% 50%;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 0% 50%;
+        transform: scale(.8);
+    }
+}
+
+@keyframes fyZoomRightIn {
+    0% {
+        opacity: 0;
+        transform-origin: 100% 50%;
+        transform: scale(.8);
+    }
+    100% {
+        transform-origin: 100% 50%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fyZoomRightOut {
+    0% {
+        transform-origin: 100% 50%;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 100% 50%;
+        transform: scale(.8);
+    }
+}
+
+@keyframes fyZoomDownIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 100%;
+        transform: scale(.8);
+    }
+    100% {
+        transform-origin: 50% 100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fyZoomDownOut {
+    0% {
+        transform-origin: 50% 100%;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform-origin: 50% 100%;
+        transform: scale(.8);
+    }
+}
