@@ -6,7 +6,9 @@
   "scripts": {
     "clean": "rimraf lib dist es",
     "prepare": "npm run clean && npm run lint && npm run build",
-    "build": "cross-env BABEL_ENV=production NODE_ENV=production babel src --out-dir lib",
+    "build": "npm run build:es && npm run build:less",
+    "build:es": "cross-env BABEL_ENV=production NODE_ENV=production babel src --out-dir lib",
+    "build:less": "lessc src/index.less lib/index.css",
     "lint": "npm run lint:es && npm run lint:style",
     "lint:es": "eslint src --ext '.js,.jsx'",
     "lint:style": "stylelint \"src/**/*.less\" --syntax less",
