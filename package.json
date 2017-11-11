@@ -13,6 +13,10 @@
     "lint-staged": "lint-staged",
     "lint-staged:es": "eslint"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "lint-staged": {
     "{src,stories}/**/*.{js,jsx}": [
       "lint-staged:es"
