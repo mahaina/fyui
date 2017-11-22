@@ -77,6 +77,7 @@
     "rc-steps": "^2.5.1",
     "rc-tabs": "^9.1.10",
     "rc-tooltip": "^3.7.0",
+    "rc-tree": "^1.7.9",
     "rc-util": "^4.2.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
