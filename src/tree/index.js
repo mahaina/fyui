@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import RcTree, {TreeNode} from 'rc-tree';
 import animation from '../_util/openAnimation';
 
-export default class Tree extends React.Component<TreeProps, any> {
+/* eslint-disable react/default-props-match-prop-types */
+export default class Tree extends Component {
     static TreeNode = TreeNode;
 
     static defaultProps = {
@@ -47,7 +48,8 @@ export default class Tree extends React.Component<TreeProps, any> {
         onDrop: PropTypes.func,
         style: PropTypes.object,
         prefix: PropTypes.string,
-        filterTreeNode: PropTypes.func
+        filterTreeNode: PropTypes.func,
+        children: PropTypes.node
     };
 
     render() {
