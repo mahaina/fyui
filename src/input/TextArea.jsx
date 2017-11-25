@@ -43,6 +43,10 @@ export default class TextArea extends Component {
         onKeyDown: PropTypes.func
     };
 
+    state = {
+        textareaStyles: null
+    };
+
     componentDidMount() {
         this.resizeTextarea();
     }
