@@ -17,3 +17,4 @@ export {default as Tabs} from './tabs';
 export {default as Tooltip} from './tooltip';
 export {default as Tree} from './tree';
 export {default as Avatar} from './avatar';
+export {default as Affix} from './affix';
