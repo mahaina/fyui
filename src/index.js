@@ -18,3 +18,5 @@ export {default as Tooltip} from './tooltip';
 export {default as Tree} from './tree';
 export {default as Avatar} from './avatar';
 export {default as Affix} from './affix';
+export {default as Pagination} from './pagination';
+export {default as Dropdown} from './dropdown';
