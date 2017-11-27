@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 export default class BreadcrumbItem extends Component {
+
+    static __FY_BREADCRUMB_ITEM = true;
+
     static defaultProps = {
         prefixCls: 'fy-breadcrumb',
         separator: '/'
