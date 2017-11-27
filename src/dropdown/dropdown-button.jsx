@@ -23,6 +23,7 @@ export default class DropdownButton extends PureComponent {
         overlay: PropTypes.any,
         getPopupContainer: PropTypes.any
     };
+
     static defaultProps = {
         placement: 'bottomRight',
         type: 'default',

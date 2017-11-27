@@ -2,12 +2,11 @@ import React, {Component, cloneElement} from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import warning from '../_util/warning';
-
+import warning from 'warning';
 
 export default class Dropdown extends Component {
     static propTypes = {
-        trigger: PropTypes.arrayOf(PropTypes.oneOf(['Click', 'hover'])),
+        trigger: PropTypes.arrayOf(PropTypes.oneOf(['click', 'hover'])),
         overlay: PropTypes.node,
         style: PropTypes.object,
         onVisibleChange: PropTypes.func,
@@ -22,6 +21,7 @@ export default class Dropdown extends Component {
         mouseLeaveDelay: PropTypes.number,
         placement: PropTypes.oneOf(['topLeft', 'topCenter', 'topRight', 'bottomLeft', 'bottomCenter', 'bottomRight'])
     };
+
     static defaultProps = {
         prefixCls: 'fy-dropdown',
         mouseEnterDelay: 0.15,
@@ -34,9 +34,10 @@ export default class Dropdown extends Component {
         const overlayProps = overlay.props;
         warning(
             !overlayProps.mode || overlayProps.mode === 'vertical',
-            `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
+            `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
         );
     }
+
     getTransitionName() {
         const {placement = ''} = this.props;
         if (placement.indexOf('top') >= 0) {

@@ -27,10 +27,12 @@ export default class Pagination extends Component {
         selectPrefixCls: PropTypes.string,
         itemRender: PropTypes.func
     };
+
     static defaultProps = {
         prefixCls: 'fy-pagination',
         selectPrefixCls: 'fy-select'
     };
+
     render() {
         const {className, size, ...restProps} = this.props;
         const locale = this.getLocale();
