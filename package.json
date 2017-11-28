@@ -88,6 +88,7 @@
     "rc-pagination": "~1.12.4",
     "rc-table": "~5.6.9",
     "rc-dropdown": "~1.5.0",
-    "dom-closest": "^0.2.0"
+    "dom-closest": "^0.2.0",
+    "rc-dialog": "~6.5.10"
   }
 }
