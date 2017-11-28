@@ -58,11 +58,7 @@
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.2",
     "stylelint": "^8.2.0",
-    "stylelint-config-standard": "^17.0.0",
-    "rc-pagination": "~1.12.4",
-    "rc-table": "~5.6.9",
-    "rc-dropdown": "~1.5.0",
-    "dom-closest": "^0.2.0"
+    "stylelint-config-standard": "^17.0.0"
   },
   "dependencies": {
     "array-tree-filter": "^1.0.1",
@@ -90,6 +86,7 @@
     "shallowequal": "^1.0.2",
     "warning": "^3.0.0",
     "rc-table": "~5.6.9",
-    "dom-closest": "^0.2.0"
+    "dom-closest": "^0.2.0",
+    "rc-dialog": "~6.5.10"
   }
 }
