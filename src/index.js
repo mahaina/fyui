@@ -20,3 +20,4 @@ export {default as Avatar} from './avatar';
 export {default as Affix} from './affix';
 export {default as Pagination} from './pagination';
 export {default as Dropdown} from './dropdown';
+export {default as Table} from './table';
