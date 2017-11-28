@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
+import warning from 'warning';
 import classNames from 'classnames';
 import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
-import warning from '../_util/warning';
 import FilterDropdown from './filterDropdown';
 import createStore from './createStore';
 import SelectionBox from './SelectionBox';
@@ -348,9 +348,10 @@ export default class Table extends Component {
         return findDOMNode(this);
     }
 
-    getColumnKey(column, index) {
+    getColumnKey = (column, index) => {
         return column.key || column.dataIndex || index;
     }
+
     getCurrentPageData() {
         let data = this.getLocalData();
         let current;
@@ -858,8 +859,11 @@ export default class Table extends Component {
             const rowIndex = this.getRecordKey(record, index); // 从 1 开始
             const props = this.getCheckboxPropsByItem(record, index);
             const handleChange = e => {
-                type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
+                if (type === 'radio') {
+                    this.handleRadioSelect(record, rowIndex, e);
+                } else {
                     this.handleSelect(record, rowIndex, e);
+                }
             };
 
             return (

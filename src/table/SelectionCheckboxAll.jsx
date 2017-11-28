@@ -13,6 +13,7 @@ export default class SelectionCheckboxAll extends Component {
         disabled: PropTypes.bool,
         getCheckboxPropsByItem: PropTypes.func,
         getRecordKey: PropTypes.func,
+        /* eslint-disable react/no-unused-prop-types */
         data: PropTypes.array,
         prefixCls: PropTypes.string,
         onSelect: PropTypes.func,

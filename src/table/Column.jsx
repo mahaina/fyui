@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+/* eslint-disable no-unused-vars */
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-
-export default class Column extends Component {
+/* eslint-disable react/prefer-stateless-function */
+export default class Column extends PureComponent {
+    /* eslint-disable react/no-unused-prop-types */
     static propTypes = {
         title: PropTypes.node,
         key: PropTypes.string,
