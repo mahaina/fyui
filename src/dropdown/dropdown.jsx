@@ -2,8 +2,7 @@ import React, {Component, cloneElement} from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import warning from '../_util/warning';
-
+import warning from 'warning';
 
 export default class Dropdown extends Component {
     static propTypes = {
@@ -22,6 +21,7 @@ export default class Dropdown extends Component {
         mouseLeaveDelay: PropTypes.number,
         placement: PropTypes.oneOf(['topLeft', 'topCenter', 'topRight', 'bottomLeft', 'bottomCenter', 'bottomRight'])
     };
+
     static defaultProps = {
         prefixCls: 'fy-dropdown',
         mouseEnterDelay: 0.15,
@@ -37,6 +37,7 @@ export default class Dropdown extends Component {
             `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
         );
     }
+
     getTransitionName() {
         const {placement = ''} = this.props;
         if (placement.indexOf('top') >= 0) {

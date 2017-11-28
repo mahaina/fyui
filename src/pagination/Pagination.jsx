@@ -26,10 +26,12 @@ export default class Pagination extends PureComponent {
         selectPrefixCls: PropTypes.string,
         itemRender: PropTypes.func
     };
+
     static defaultProps = {
         prefixCls: 'fy-pagination',
         selectPrefixCls: 'fy-select'
     };
+
     render() {
         const {className, size, ...restProps} = this.props;
         const isSmall = size === 'small';
