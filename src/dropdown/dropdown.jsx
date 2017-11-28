@@ -34,7 +34,7 @@ export default class Dropdown extends Component {
         const overlayProps = overlay.props;
         warning(
             !overlayProps.mode || overlayProps.mode === 'vertical',
-            `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
+            `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
         );
     }
     getTransitionName() {

@@ -33,6 +33,7 @@ export default class FilterMenu extends Component {
                 filterIcon: PropTypes.node
             })
         ),
+        /* eslint-disable react/no-unused-prop-types */
         handleFilter: PropTypes.func,
         confirmFilter: PropTypes.func,
         prefixCls: PropTypes.string,
@@ -70,6 +71,12 @@ export default class FilterMenu extends Component {
         }
         if (Object.keys(newState).length > 0) {
             this.setState(newState);
+        }
+    }
+    onVisibleChange = visible => {
+        this.setVisible(visible);
+        if (!visible) {
+            this.confirmFilter();
         }
     }
 
@@ -112,26 +119,24 @@ export default class FilterMenu extends Component {
         }
     }
 
-    renderMenuItem(item) {
-        const {column} = this.props;
-        const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-        const input = multiple ? (
-            <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-        ) : (
-            <Radio checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-        );
-
-        return (
-            <MenuItem key={item.value}>
-                {input}
-                <span>{item.text}</span>
-            </MenuItem>
-        );
-    }
-
     hasSubMenu() {
         const {column: {filters = []}} = this.props;
         return filters.some(item => !!(item.children && item.children.length > 0));
+    }
+
+    handleMenuItemClick = info => {
+        if (info.keyPath.length <= 1) {
+            return;
+        }
+        const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
+        if (this.state.selectedKeys.indexOf(info.key) >= 0) {
+            // deselect SubMenu child
+            delete keyPathOfSelectedItem[info.key];
+        } else {
+            // select SubMenu child
+            keyPathOfSelectedItem[info.key] = info.keyPath;
+        }
+        this.setState({keyPathOfSelectedItem});
     }
 
     renderMenus(items) {
@@ -152,21 +157,6 @@ export default class FilterMenu extends Component {
         });
     }
 
-    handleMenuItemClick = info => {
-        if (info.keyPath.length <= 1) {
-            return;
-        }
-        const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
-        if (this.state.selectedKeys.indexOf(info.key) >= 0) {
-            // deselect SubMenu child
-            delete keyPathOfSelectedItem[info.key];
-        } else {
-            // select SubMenu child
-            keyPathOfSelectedItem[info.key] = info.keyPath;
-        }
-        this.setState({keyPathOfSelectedItem});
-    }
-
     renderFilterIcon = () => {
         const {column, locale, prefixCls} = this.props;
         const filterIcon = column.filterIcon;
@@ -179,12 +169,21 @@ export default class FilterMenu extends Component {
             })
         }) : <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />;
     }
+    renderMenuItem(item) {
+        const {column} = this.props;
+        const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
+        const input = multiple ? (
+            <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+        ) : (
+            <Radio checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+        );
 
-    onVisibleChange = visible => {
-        this.setVisible(visible);
-        if (!visible) {
-            this.confirmFilter();
-        }
+        return (
+            <MenuItem key={item.value}>
+                {input}
+                <span>{item.text}</span>
+            </MenuItem>
+        );
     }
     render() {
         const {column, locale, prefixCls, dropdownPrefixCls, getPopupContainer} = this.props;
