@@ -7,7 +7,7 @@ import warning from '../_util/warning';
 
 export default class Dropdown extends Component {
     static propTypes = {
-        trigger: PropTypes.arrayOf(PropTypes.oneOf(['Click', 'hover'])),
+        trigger: PropTypes.arrayOf(PropTypes.oneOf(['click', 'hover'])),
         overlay: PropTypes.node,
         style: PropTypes.object,
         onVisibleChange: PropTypes.func,

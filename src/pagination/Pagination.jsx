@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import RcPagination from 'rc-pagination';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Select from '../select';
 import MiniSelect from './MiniSelect';
 
-export default class Pagination extends Component {
+export default class Pagination extends PureComponent {
     static propTypes = {
         total: PropTypes.number,
         defaultCurrent: PropTypes.number,
@@ -13,15 +13,14 @@ export default class Pagination extends Component {
         defaultPageSize: PropTypes.number,
         pageSize: PropTypes.number,
         onChange: PropTypes.func,
-        showSizeChanger: PropTypes.boolean,
+        // showSizeChanger: PropTypes.boolean,
         pageSizeOptions: PropTypes.arrayOf(PropTypes.string),
         onShowSizeChange: PropTypes.func,
-        showQuickJumper: PropTypes.boolean,
+        // showQuickJumper: PropTypes.boolean,
         showTotal: PropTypes.func,
         size: PropTypes.string,
-        simple: PropTypes.boolean,
         style: PropTypes.object,
-        locale: PropTypes.Object,
+        // locale: PropTypes.Object,
         className: PropTypes.string,
         prefixCls: PropTypes.string,
         selectPrefixCls: PropTypes.string,
@@ -33,14 +32,12 @@ export default class Pagination extends Component {
     };
     render() {
         const {className, size, ...restProps} = this.props;
-        const locale = this.getLocale();
         const isSmall = size === 'small';
         return (
             <RcPagination
                 {...restProps}
                 className={classNames(className, {mini: isSmall})}
                 selectComponentClass={isSmall ? MiniSelect : Select}
-                locale={locale}
             />
         );
     }
