@@ -10,7 +10,7 @@ let mousePositionEventBinded;
 export default class Modal extends Component {
 
     static defaultProps = {
-        prefixCls: 'ant-modal',
+        prefixCls: 'fy-modal',
         width: 520,
         transitionName: 'zoom',
         maskTransitionName: 'fade',
@@ -44,9 +44,8 @@ export default class Modal extends Component {
     };
 
     static contextTypes = {
-        antLocale: PropTypes.object
+        fyLocale: PropTypes.object
     };
-
 
     componentDidMount() {
         if (mousePositionEventBinded) {
@@ -82,9 +81,9 @@ export default class Modal extends Component {
     render() {
         let {okText, cancelText} = this.props;
         const {okType, confirmLoading, footer, visible} = this.props;
-        if (this.context.antLocale && this.context.antLocale.Modal) {
-            okText = okText || this.context.antLocale.Modal.okText;
-            cancelText = cancelText || this.context.antLocale.Modal.cancelText;
+        if (this.context.fyLocale && this.context.fyLocale.Modal) {
+            okText = okText || this.context.fyLocale.Modal.okText;
+            cancelText = cancelText || this.context.fyLocale.Modal.cancelText;
         }
         /* eslint-disable react/jsx-closing-tag-location */
         const defaultFooter = [
