@@ -1,6 +1,6 @@
 {
   "name": "fy-ui",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -75,10 +75,10 @@
     "rc-animate": "^2.4.1",
     "rc-cascader": "^0.12.0",
     "rc-checkbox": "^2.0.3",
-    "rc-dropdown": "^2.1.0",
+    "rc-dropdown": "~1.5.0",
     "rc-form": "^2.0.0",
     "rc-menu": "^5.0.10",
-    "rc-pagination": "^1.12.11",
+    "rc-pagination": "~1.12.4",
     "rc-select": "^7.1.0",
     "rc-steps": "^2.5.1",
     "rc-tabs": "^9.1.10",
@@ -89,9 +89,7 @@
     "react-dom": "^15.6.2",
     "shallowequal": "^1.0.2",
     "warning": "^3.0.0",
-    "rc-pagination": "~1.12.4",
     "rc-table": "~5.6.9",
-    "rc-dropdown": "~1.5.0",
     "dom-closest": "^0.2.0"
   }
 }
