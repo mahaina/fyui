@@ -8,6 +8,7 @@ export default class SelectionBox extends Component {
     static propTypes = {
         store: PropTypes.object,
         type: PropTypes.string,
+        /* eslint-disable react/no-unused-prop-types */
         defaultSelection: PropTypes.arrayOf(PropTypes.string),
         rowIndex: PropTypes.string,
         disabled: PropTypes.bool,
@@ -30,7 +31,7 @@ export default class SelectionBox extends Component {
         }
     }
 
-    getCheckState(props) {
+    getCheckState = props => {
         const {store, defaultSelection, rowIndex} = props;
         let checked = false;
         if (store.getState().selectionDirty) {
@@ -41,6 +42,7 @@ export default class SelectionBox extends Component {
         }
         return checked;
     }
+
     subscribe() {
         const store = this.props.store;
         this.unsubscribe = store.subscribe(() => {

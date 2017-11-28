@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Radio from './radio';
 
-export default class RadioButton extends Component {
+export default class RadioButton extends PureComponent {
     static defaultProps = {
         prefixCls: 'ant-radio-button'
     };
