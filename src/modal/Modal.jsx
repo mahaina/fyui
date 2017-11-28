@@ -47,7 +47,6 @@ export default class Modal extends Component {
         fyLocale: PropTypes.object
     };
 
-
     componentDidMount() {
         if (mousePositionEventBinded) {
             return;
