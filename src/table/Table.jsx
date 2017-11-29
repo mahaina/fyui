@@ -78,7 +78,7 @@ export default class Table extends Component {
             x: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
             y: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool])
         }),
-        rowSelection: PropTypes.bool,
+        rowSelection: PropTypes.object,
         childrenColumnName: PropTypes.string,
         bodyStyle: PropTypes.object,
         className: PropTypes.string,
