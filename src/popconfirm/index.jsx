@@ -1,18 +1,16 @@
-import * as React from "react";
-import Tooltip, { AbstractTooltipProps } from "../tooltip";
-import Icon from "../icon";
-import Button from "../button";
-import { ButtonType } from "../button/button";
-
-import { Proptypes } from "prop-types";
+import * as React from 'react';
+import {Proptypes} from 'prop-types';
+import Tooltip from '../tooltip';
+import Icon from '../icon';
+import Button from '../button';
 
 export default class Popconfirm extends React.component {
     static defaultProps = {
-        prefixCls: "ant-popover",
-        transitionName: "zoom-big",
-        placement: "top",
-        trigger: "click",
-        okType: "primary"
+        prefixCls: 'ant-popover',
+        transitionName: 'zoom-big',
+        placement: 'top',
+        trigger: 'click',
+        okType: 'primary'
     };
 
     static proptypes = {
@@ -20,7 +18,7 @@ export default class Popconfirm extends React.component {
         onConfirm: Proptypes.func,
         onCancel: Proptypes.func,
         okText: Proptypes.node,
-        okType: Proptypes.oneOf(["primary", "ghost", "dashed", "danger"]),
+        okType: Proptypes.oneOf(['primary', 'ghost', 'dashed', 'danger']),
         cancelText: Proptypes.node
     };
 
@@ -33,8 +31,8 @@ export default class Popconfirm extends React.component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if ("visible" in nextProps) {
-            this.setState({ visible: nextProps.visible });
+        if ('visible' in nextProps) {
+            this.setState({visible: nextProps.visible});
         }
     }
 
@@ -45,7 +43,7 @@ export default class Popconfirm extends React.component {
     onConfirm = e => {
         this.setVisible(false);
 
-        const { onConfirm } = this.props;
+        const {onConfirm} = this.props;
         if (onConfirm) {
             onConfirm.call(this, e);
         }
@@ -54,7 +52,7 @@ export default class Popconfirm extends React.component {
     onCancel = e => {
         this.setVisible(false);
 
-        const { onCancel } = this.props;
+        const {onCancel} = this.props;
         if (onCancel) {
             onCancel.call(this, e);
         }
@@ -66,11 +64,11 @@ export default class Popconfirm extends React.component {
 
     setVisible(visible) {
         const props = this.props;
-        if (!("visible" in props)) {
-            this.setState({ visible });
+        if (!('visible' in props)) {
+            this.setState({visible});
         }
 
-        const { onVisibleChange } = props;
+        const {onVisibleChange} = props;
         if (onVisibleChange) {
             onVisibleChange(visible);
         }
@@ -81,7 +79,7 @@ export default class Popconfirm extends React.component {
     };
 
     renderOverlay = popconfirmLocale => {
-        const { prefixCls, title, cancelText, okText, okType } = this.props;
+        const {prefixCls, title, cancelText, okText, okType} = this.props;
         return (
             <div>
                 <div className={`${prefixCls}-inner-content`}>
@@ -103,7 +101,7 @@ export default class Popconfirm extends React.component {
     };
 
     render() {
-        const { prefixCls, placement, ...restProps } = this.props;
+        const {prefixCls, placement, ...restProps} = this.props;
 
         const overlay = <div>{this.renderOverlay}</div>;
 
