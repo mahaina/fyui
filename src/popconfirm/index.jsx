@@ -85,7 +85,7 @@ export default class Popconfirm extends Component {
         this.tooltip = node;
     };
 
-    renderOverlay = popconfirmLocale => {
+    renderOverlay = () => {
         const {prefixCls, title, cancelText, okText, okType} = this.props;
         return (
             <div>
@@ -96,10 +96,10 @@ export default class Popconfirm extends Component {
                     </div>
                     <div className={`${prefixCls}-buttons`}>
                         <Button onClick={this.onCancel} size="small">
-                            {cancelText || popconfirmLocale.cancelText}
+                            {cancelText}
                         </Button>
                         <Button onClick={this.onConfirm} type={okType} size="small">
-                            {okText || popconfirmLocale.okText}
+                            {okText}
                         </Button>
                     </div>
                 </div>
@@ -110,8 +110,6 @@ export default class Popconfirm extends Component {
     render() {
         const {prefixCls, placement, ...restProps} = this.props;
 
-        const overlay = <div>{this.renderOverlay}</div>;
-
-        return <Tooltip {...restProps} prefixCls={prefixCls} placement={placement} onVisibleChange={this.onVisibleChange} visible={this.state.visible} overlay={overlay} ref={this.saveTooltip} />;
+        return <Tooltip {...restProps} prefixCls={prefixCls} placement={placement} onVisibleChange={this.onVisibleChange} visible={this.state.visible} overlay={this.renderOverlay()} ref={this.saveTooltip} />;
     }
 }
