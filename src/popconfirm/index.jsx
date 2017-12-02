@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {Proptypes} from 'prop-types';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 
-export default class Popconfirm extends React.component {
+export default class Popconfirm extends Component {
     static defaultProps = {
         prefixCls: 'ant-popover',
         transitionName: 'zoom-big',
@@ -13,13 +13,18 @@ export default class Popconfirm extends React.component {
         okType: 'primary'
     };
 
-    static proptypes = {
-        title: Proptypes.string,
-        onConfirm: Proptypes.func,
-        onCancel: Proptypes.func,
-        okText: Proptypes.node,
-        okType: Proptypes.oneOf(['primary', 'ghost', 'dashed', 'danger']),
-        cancelText: Proptypes.node
+    static propTypes = {
+        visible: PropTypes.bool,
+        transitionName: PropTypes.string,
+        placement: PropTypes.string,
+        prefixCls: PropTypes.string,
+        trigger: PropTypes.string,
+        title: PropTypes.string,
+        onConfirm: PropTypes.func,
+        onCancel: PropTypes.func,
+        okText: PropTypes.node,
+        okType: PropTypes.oneOf(['primary', 'ghost', 'dashed', 'danger']),
+        cancelText: PropTypes.node
     };
 
     constructor(props) {
@@ -28,16 +33,14 @@ export default class Popconfirm extends React.component {
         this.state = {
             visible: props.visible
         };
+
+        this.tooltip = null;
     }
 
     componentWillReceiveProps(nextProps) {
         if ('visible' in nextProps) {
             this.setState({visible: nextProps.visible});
         }
-    }
-
-    getPopupDomNode() {
-        return this.tooltip.getPopupDomNode();
     }
 
     onConfirm = e => {
@@ -61,6 +64,10 @@ export default class Popconfirm extends React.component {
     onVisibleChange = visible => {
         this.setVisible(visible);
     };
+
+    getPopupDomNode() {
+        return this.tooltip.getPopupDomNode();
+    }
 
     setVisible(visible) {
         const props = this.props;
@@ -105,16 +112,6 @@ export default class Popconfirm extends React.component {
 
         const overlay = <div>{this.renderOverlay}</div>;
 
-        return (
-            <Tooltip
-                {...restProps}
-                prefixCls={prefixCls}
-                placement={placement}
-                onVisibleChange={this.onVisibleChange}
-                visible={this.state.visible}
-                overlay={overlay}
-                ref={this.saveTooltip}
-            />
-        );
+        return <Tooltip {...restProps} prefixCls={prefixCls} placement={placement} onVisibleChange={this.onVisibleChange} visible={this.state.visible} overlay={overlay} ref={this.saveTooltip} />;
     }
 }
