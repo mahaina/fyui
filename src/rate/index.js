@@ -14,6 +14,11 @@ export default class Rate extends React.Component {
         character: <Icon type="star" />
     };
 
+    constructor(...args) {
+        super(...args);
+        this.saveRate = this.saveRate.bind(this);
+    }
+
     focus() {
         this.rcRate.focus();
     }
