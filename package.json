@@ -80,6 +80,7 @@
     "rc-pagination": "~1.12.4",
     "rc-rate": "^2.3.0",
     "rc-select": "^7.1.0",
+    "rc-notification": "~2.0.0",
     "rc-steps": "^2.5.1",
     "rc-table": "~5.6.9",
     "rc-tabs": "^9.1.10",
@@ -88,6 +89,7 @@
     "rc-util": "^4.2.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
+    "rc-input-number": "~3.6.0",
     "shallowequal": "^1.0.2",
     "warning": "^3.0.0"
   }

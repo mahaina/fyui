@@ -24,3 +24,5 @@ export {default as Dropdown} from './dropdown';
 export {default as Table} from './table';
 export {default as Modal} from './modal';
 export {default as Rate} from './rate';
+export {default as InputNumber} from './inputNumber';
+export {default as message} from './message';
