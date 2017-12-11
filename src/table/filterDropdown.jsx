@@ -18,21 +18,19 @@ export default class FilterMenu extends Component {
     static propTypes = {
         locale: PropTypes.any,
         selectedKeys: PropTypes.arrayOf(PropTypes.string),
-        column: PropTypes.arrayOf(
-            PropTypes.shape({
-                filterMultiple: PropTypes.bool,
-                filterDropdown: PropTypes.node,
-                filters: PropTypes.shape({
-                    text: PropTypes.string,
-                    value: PropTypes.string,
-                    children: PropTypes.any
-                }),
-                filterDropdownVisible: PropTypes.bool,
-                onFilterDropdownVisibleChange: PropTypes.func,
-                fixed: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-                filterIcon: PropTypes.node
-            })
-        ),
+        column: PropTypes.shape({
+            filterMultiple: PropTypes.bool,
+            filterDropdown: PropTypes.node,
+            filters: PropTypes.shape({
+                text: PropTypes.string,
+                value: PropTypes.string,
+                children: PropTypes.any
+            }),
+            filterDropdownVisible: PropTypes.bool,
+            onFilterDropdownVisibleChange: PropTypes.func,
+            fixed: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+            filterIcon: PropTypes.node
+        }),
         /* eslint-disable react/no-unused-prop-types */
         handleFilter: PropTypes.func,
         confirmFilter: PropTypes.func,
