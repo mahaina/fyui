@@ -6,7 +6,7 @@ import Button from '../button';
 
 export default class Popconfirm extends Component {
     static defaultProps = {
-        prefixCls: 'ant-popover',
+        prefixCls: 'fy-popover',
         transitionName: 'zoom-big',
         placement: 'top',
         trigger: 'click',
