@@ -19,7 +19,7 @@ export default class Popconfirm extends Component {
         placement: PropTypes.string,
         prefixCls: PropTypes.string,
         trigger: PropTypes.string,
-        title: PropTypes.string,
+        title: PropTypes.node,
         onConfirm: PropTypes.func,
         onCancel: PropTypes.func,
         okText: PropTypes.node,
