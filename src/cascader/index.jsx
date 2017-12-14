@@ -64,7 +64,7 @@ export default class Cascader extends Component {
     static propTypes = {
         options: PropTypes.arrayOf(optionsShape),
         defaultDisplayRender: PropTypes.arrayOf(optionsShape),
-        value: PropTypes.arrayOf(optionsShape),
+        value: PropTypes.array,
         defaultValue: PropTypes.array,
         onChange: PropTypes.func,
         transitionName: PropTypes.string,
